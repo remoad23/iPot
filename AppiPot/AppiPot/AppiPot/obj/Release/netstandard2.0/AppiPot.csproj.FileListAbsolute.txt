@@ -1,0 +1,17 @@
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\AppiPot.csprojAssemblyReference.cache
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\App.xaml.g.cs
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\Pages\LightPage.xaml.g.cs
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\Pages\MasterPage.xaml.g.cs
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\Pages\SettingsPage.xaml.g.cs
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\Pages\WaterPage.xaml.g.cs
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\style.css.g.cs
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\AppiPot.AssemblyInfoInputs.cache
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\AppiPot.AssemblyInfo.cs
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\AppiPot.csproj.CoreCompileInputs.cache
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\AppiPot.dll
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\AppiPot.pdb
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\bin\Release\netstandard2.0\AppiPot.deps.json
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\bin\Release\netstandard2.0\AppiPot.dll
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\bin\Release\netstandard2.0\AppiPot.pdb
+C:\Users\Patrick\RiderProjects\AppiPot\AppiPot\AppiPot\obj\Release\netstandard2.0\XamlC.stamp

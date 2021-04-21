@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppiPot.Pages.SettingsPage">
+    <ContentPage.Content>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection Title="Allgemein">
+                    <SwitchCell Text="Automatisches Gießen" />
+                    <SwitchCell Text="automatisches Licht" On="true" />
+                </TableSection>
+                <TableSection Title="Benachrichtigungen">
+                    <SwitchCell Text="Wasser" />
+                    <SwitchCell Text="Licht" On="true" />
+                    <SwitchCell Text="Bodenfeuchtigkeit" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

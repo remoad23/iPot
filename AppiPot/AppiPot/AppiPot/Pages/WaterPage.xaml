@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppiPot.Pages.WaterPage">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <Grid BackgroundColor="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="300*" />
+                            <RowDefinition Height="300*" />
+                            <RowDefinition Height="500*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                
+                        <Frame Grid.Row="0" class="circleHeader" CornerRadius="1000" HorizontalOptions="Start" VerticalOptions="Start">
+                            <StackLayout HeightRequest="1500" WidthRequest="600" Orientation="Horizontal">
+                                <Label Text="O" class="circleHeaderIcon"></Label>
+                                <Label Text="50%" class="fontCircleHeader"></Label>
+                            </StackLayout>
+                        </Frame>
+                        <StackLayout Grid.Row="1"  Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                            <Label Text="Wasser" HorizontalTextAlignment="Center" class="waterTitle" TextColor="#039BE5"></Label>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical" class="stateleftWrapper" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="50%" class="percentagesStates" HorizontalTextAlignment="center"></Label>
+                                    <Label Text="Feuchtigkeit" class="blueFont" HorizontalTextAlignment="center"></Label>
+                                </StackLayout>
+                                <BoxView CornerRadius="5" class="waterStatesSeperator"></BoxView>
+                                <StackLayout Orientation="Vertical" class="staterightWrapper" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="50%" class="percentagesStates" HorizontalTextAlignment="center"></Label>
+                                    <Label Text="Wasser" class="blueFont" HorizontalTextAlignment="center"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                            <Button Text="Gießen" class="giessBtn" FontAttributes="Bold" CornerRadius="300"></Button>
+                        </StackLayout>
+                        <StackLayout Grid.Row="2" BackgroundColor="#039BE5" class="waterDateSection">
+                            <Grid Grid.Row="2" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="20*" />
+                                    <ColumnDefinition Width="20*" />
+                                    <ColumnDefinition Width="40*" />
+                                    <ColumnDefinition Width="20*" />
+                                    <ColumnDefinition Width="5*" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <Label Grid.Row="0" Grid.Column="2" class="whiteFont" Text="Uhrzeit"></Label>
+                                <Label Grid.Row="0" Grid.Column="4" class="whiteFont" Text="Wasser"></Label>
+                                
+                                <Switch Grid.Row="1" Grid.Column="1" class="whiteFont"></Switch>
+                                <Switch Grid.Row="2" Grid.Column="1" class="whiteFont"></Switch>
+                                
+                                <Label Grid.Row="1" Grid.Column="2" class="whiteFont" Text="17:00"></Label>
+                                <Label Grid.Row="2" Grid.Column="2" class="whiteFont" Text="9:00"></Label>
+                                
+                                <Label Grid.Row="1" Grid.Column="4" class="whiteFont" Text="25%"></Label>
+                                <Label Grid.Row="2" Grid.Column="4" class="whiteFont" Text="50%"></Label>
+                                
+                            </Grid>
+                            <Button Text="Neue Zeit" class="addNewWaterDateBtn" CornerRadius="300"></Button>
+                        </StackLayout>
+                        
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

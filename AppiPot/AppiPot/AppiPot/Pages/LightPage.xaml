@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppiPot.Pages.LightPage">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand">
+            <Grid BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300*" />
+                    <RowDefinition Height="300*" />
+                    <RowDefinition Height="500*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Row="0" class="circleHeaderLight" CornerRadius="1000" HorizontalOptions="End"
+                       VerticalOptions="Start">
+                    <StackLayout HeightRequest="1500" WidthRequest="600" Orientation="Horizontal"
+                                 class="circleHeaderGreenWrapper">
+                        <Label Text="50%" class="fontCircleHeader" />
+                        <Label Text="O" class="circleHeaderIcon" />
+                    </StackLayout>
+                </Frame>
+                <Grid Grid.Row="1">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" class="lightLeftSide">
+                        <Label Text="LED"></Label>
+                            <FlexLayout class="lightAdjustingBtnsWrapper" Direction="Row" Wrap="Wrap">
+                                <Button CornerRadius="10" Text="0"  class="leftSideLightBtns"/>
+                                <Button CornerRadius="10" Text="25%" class="leftSideLightBtns" />
+                                <Button CornerRadius="10" Text="50%"  class="leftSideLightBtns"/>
+                                <Button CornerRadius="10" Text="75%"  class="leftSideLightBtns"/>
+                                <Button CornerRadius="10" Text="100%" class="leftSideLightBtns" />
+                            </FlexLayout>
+                        </StackLayout>
+                    <StackLayout Orientation="Vertical" class="lightRightSide" Grid.Row="0" Grid.Column="1">
+                        <StackLayout>
+                            <Label Text="LED" />
+                            <Button CornerRadius="10" class="rightSideLightBtns" Text="Btn1" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="Raum" />
+                            <Button CornerRadius="10" class="rightSideLightBtns" Text="Btn2" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="Betriebszeit" />
+                            <Button CornerRadius="10" class="rightSideLightBtns" Text="Btn2" />
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+                <StackLayout Grid.Row="2" BackgroundColor="#659157" class="lightDateSection">
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*" />
+                            <ColumnDefinition Width="20*" />
+                            <ColumnDefinition Width="20*" />
+                            <ColumnDefinition Width="40*" />
+                            <ColumnDefinition Width="20*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="2" class="whiteFont" Text="Uhrzeit" />
+                        <Label Grid.Row="0" Grid.Column="4" class="whiteFont" Text="Wasser" />
+
+                        <Switch Grid.Row="1" Grid.Column="1" class="whiteFont" />
+                        <Switch Grid.Row="2" Grid.Column="1" class="whiteFont" />
+
+                        <Label Grid.Row="1" Grid.Column="2" class="whiteFont" Text="17:00" />
+                        <Label Grid.Row="2" Grid.Column="2" class="whiteFont" Text="9:00" />
+
+                        <Label Grid.Row="1" Grid.Column="4" class="whiteFont" Text="25%" />
+                        <Label Grid.Row="2" Grid.Column="4" class="whiteFont" Text="50%" />
+
+                    </Grid>
+                    <Button Text="Neue Zeit" class="addNewLightDateBtn" CornerRadius="300" />
+                </StackLayout>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

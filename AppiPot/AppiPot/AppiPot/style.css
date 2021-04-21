@@ -1,0 +1,166 @@
+.HeaderCircle
+{
+   
+}
+
+.blueFont
+{
+    color: #039BE5;
+}
+
+.whiteFont
+{
+    color: white;
+}
+
+.giessBtn,.addNewWaterDateBtn
+{
+    margin-top: 30;
+    margin-left: 20;
+    margin-right: 20;
+}
+
+.giessBtn
+{
+    background-color: #039BE5;
+    color: white;
+    font-size: 20;
+    width: 300;
+}
+
+.addNewWaterDateBtn
+{
+    background-color: white;
+    color: #039BE5;
+    font-size: 20;
+    font-weight: 600;
+}
+
+.addNewLightDateBtn
+{
+    background-color: white;
+    color: #659157;
+    font-size: 20;
+    font-weight: 600;
+    margin-top: 10;
+    margin-left: 15;
+    margin-right: 15;
+}
+
+.waterDateSection
+{
+    padding-top: 50;
+}
+
+.lightDateSection
+{
+    margin-top: 50;
+    padding-top: 80;
+}
+
+.lightAdjustingBtnsWrapper
+{
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.waterStatesSeperator
+{
+    background-color: #039BE5;
+    width: 3;
+}
+
+.waterTitle
+{
+    font-size: 50;
+    color: #039BE5;
+    margin-bottom: 20;
+}
+
+.percentagesStates
+{
+    color: #039BE5;
+    font-size: 30;
+}
+
+.stateleftWrapper
+{
+    margin-right: 20;
+}
+
+.staterightWrapper
+{
+    margin-left: 20;
+}
+
+.circleHeader
+{
+    background-color: #039BE5;
+    padding-top: 450;
+    padding-left: 400;
+    height: 250;
+    width: 300;
+    margin-left: -350;
+    margin-top: -350;
+    box-shadow: 5px 10px;
+    
+}
+
+.circleHeaderLight
+{
+    background-color: #659157;
+    padding-top: 450;
+    padding-right: 400;
+    height: 250;
+    width: 300;
+    margin-right: -350;
+    margin-top: -350;
+    box-shadow: 5px 10px;
+}
+
+.fontCircleHeader
+{
+    color: white;
+    font-size: 80;
+}
+
+.circleHeaderIcon
+{
+    font-size: 80;
+    color: white;
+}
+
+.circleHeaderGreenWrapper
+{
+    padding-left: 30;
+}
+
+.leftSideLightBtns
+{
+    background-color: #659157;
+    color: white;
+    width: 70;
+    height: 70;
+    margin-right: 10;
+    margin-bottom: 10;
+}
+
+.rightSideLightBtns
+{
+    background-color: #659157;
+    color: white;
+    width: 50;
+    height: 100;
+}
+
+
+.lightLeftSide
+{
+    padding-left: 15;
+}
+
+.lightRightSide
+{
+    padding-right: 15;
+}
+
