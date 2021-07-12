@@ -1,16 +1,79 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Linq;
+using System.Text.Json;
+using iPotAPI.DataTransferObject;
+using iPotAPI.Model;
+using Microsoft.AspNetCore.Mvc;
 
 namespace iPotAPI.Controllers
 {
-    /**
-     * Controller for every water interaction
-     */
     public class WaterController : Controller
     {
-        // GET
-        public IActionResult Index()
+        private PotContext Context;
+
+        public WaterController(PotContext context)
         {
-            return View();
+            Context = context;
         }
+        
+        [Route("GetMoistureAndWater")]
+        public IActionResult GetMoistureAndWater()
+        {
+            var moistureAndWater = Context.PlantState.SingleOrDefault();
+            if (moistureAndWater is not null)
+            {
+                return Json(new Tuple<float,float>(moistureAndWater.MoistureValue,moistureAndWater.WaterStorage));
+            }
+            else
+            {
+                return NotFound();
+            }
+            
+        }
+
+        [HttpPost]
+        [Route("SetMinimalMoisture")]
+        public IActionResult SetMinimalMoisture([FromBody]dynamic value)
+        {
+            string pr = Convert.ToString(value);
+            
+            var val = JsonSerializer.Deserialize<SetMinimalMoistureData>(pr);
+            Console.WriteLine(val);
+            var settings = Context.Settings.SingleOrDefault();
+            settings.MoistureMinimum = (float)val.MinimalMoisture;
+            Context.SaveChanges();
+
+          return Ok();
+        }
+
+        [Route("GetMoisture")]
+        public IActionResult GetMoisture()
+        {
+            var moistureAndWater = Context.PlantState.SingleOrDefault();
+            if (moistureAndWater is not null)
+            {
+                return Ok(moistureAndWater.MoistureValue);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+        
+        [Route("GetWater")]
+        public IActionResult GetWater()
+        {
+            var moistureAndWater = Context.PlantState.SingleOrDefault();
+            if (moistureAndWater is not null)
+            {
+                return Ok(moistureAndWater.WaterStorage);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+
     }
 }

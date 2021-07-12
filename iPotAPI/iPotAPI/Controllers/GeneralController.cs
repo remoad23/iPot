@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Threading;
+using Microsoft.AspNetCore.Mvc;
 
 namespace iPotAPI.Controllers
 {
@@ -7,10 +9,11 @@ namespace iPotAPI.Controllers
      */
     public class GeneralController : Controller
     {
-        // GET
-        public IActionResult Index()
+
+
+        public IActionResult GetTime()
         {
-            return View();
+            return Ok(DateTime.Now);
         }
     }
 }
