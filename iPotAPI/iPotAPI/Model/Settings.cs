@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace iPotAPI.Model
 {
@@ -16,6 +17,6 @@ namespace iPotAPI.Model
         public string UptimeStart { get; set; }
         public string UptimeEnd { get; set; }
 
-        public PlantState PlantState { get; set; }
+        public List<PlantState> PlantState { get; set; }
     }
 }

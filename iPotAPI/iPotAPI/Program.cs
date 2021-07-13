@@ -22,9 +22,9 @@ namespace iPotAPI
                 {
                     webBuilder.UseStartup<Startup>()
                         .UseUrls("http://localhost:5000",
-                            "http://localhost:5001", 
-                            "http://192.168.1.103:5000",
-                            "http://192.168.1.103:5001");
+                            "http://localhost:5001",
+                            "http://192.168.2.211:5000",
+                            "http://192.168.2.211:5001");
                 });
     }
 }

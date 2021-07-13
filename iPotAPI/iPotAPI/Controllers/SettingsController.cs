@@ -6,6 +6,8 @@ using System.Text.Json.Serialization;
 using iPotAPI.DataTransferObject;
 using iPotAPI.Model;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace iPotAPI.Controllers
 {
@@ -52,7 +54,7 @@ namespace iPotAPI.Controllers
         public IActionResult GetMoistureMinimum()
         {
             var minimum = Context.Settings.SingleOrDefault().MoistureMinimum;
-            return Ok(minimum);
+            return Ok("moist:"+minimum);
         }
         
         [Route("GetLightMinimum")]
@@ -131,6 +133,26 @@ namespace iPotAPI.Controllers
             settingsList.Add(settings.NotificationMoisture);
             
             return Json(settingsList);
+        }
+
+        [Route("GetPlantSettings")]
+        public IActionResult GetPlantSettings()
+        {
+            var settings = Context.Settings.SingleOrDefault();
+
+            var response = "" + Context.Settings.SingleOrDefault().MoistureMinimum + "," + Context.Settings.SingleOrDefault().LightMinimum + "," + settings.AutomaticWatering + "," + settings.AutomaticLight;
+
+            return Json(response);
+        }
+
+        [HttpPost]
+        [Route("SetPlantState")]
+        public IActionResult SetPlantState([FromQuery] int moist, [FromQuery] byte level, [FromQuery] int light, [FromQuery] int led)
+        {
+
+            Context.PlantState.Add(new PlantState {  SettingsId = 1, LedIntensity = led, AmbientLightIntensity = light, WaterStorage = level, MoistureValue = moist });
+            Context.SaveChanges();
+            return Ok();
         }
     }
 }

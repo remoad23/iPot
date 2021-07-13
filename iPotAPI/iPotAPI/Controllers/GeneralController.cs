@@ -15,5 +15,6 @@ namespace iPotAPI.Controllers
         {
             return Ok(DateTime.Now);
         }
+
     }
 }

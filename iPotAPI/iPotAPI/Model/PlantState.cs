@@ -10,7 +10,7 @@ namespace iPotAPI.Model
         public int PlantStateId { get; set; }
 
         [ForeignKey("SettingsId")]
-        public int SettingsId { get; set; }
+        public int? SettingsId { get; set; }
         public float LedIntensity { get; set; }
         public float AmbientLightIntensity { get; set; }
         public byte WaterStorage { get; set; }

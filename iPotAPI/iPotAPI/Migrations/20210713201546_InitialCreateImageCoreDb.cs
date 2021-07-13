@@ -2,7 +2,7 @@
 
 namespace iPotAPI.Migrations
 {
-    public partial class InitialCreatePotDb : Migration
+    public partial class InitialCreateImageCoreDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,7 +33,7 @@ namespace iPotAPI.Migrations
                 {
                     PlantStateId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    SettingsId = table.Column<int>(type: "INTEGER", nullable: false),
+                    SettingsId = table.Column<int>(type: "INTEGER", nullable: true),
                     LedIntensity = table.Column<float>(type: "REAL", nullable: false),
                     AmbientLightIntensity = table.Column<float>(type: "REAL", nullable: false),
                     WaterStorage = table.Column<byte>(type: "INTEGER", nullable: false),
@@ -47,7 +47,7 @@ namespace iPotAPI.Migrations
                         column: x => x.SettingsId,
                         principalTable: "Settings",
                         principalColumn: "SettingsId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -63,8 +63,7 @@ namespace iPotAPI.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_PlantState_SettingsId",
                 table: "PlantState",
-                column: "SettingsId",
-                unique: true);
+                column: "SettingsId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

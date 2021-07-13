@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.idea",
+    "\\AppiPot",
+    "\\AppiPot\\AppiPot",
+    "\\iPotAPI",
+    "\\iPotAPI\\iPotAPI",
+    "\\iPotAPI\\iPotAPI\\Controllers",
+    "\\iPotAPI\\iPotAPI\\Model"
+  ],
+  "SelectedNode": "\\iPotAPI\\iPotAPI\\Controllers\\SettingsController.cs",
+  "PreviewInSolutionExplorer": false
+}
