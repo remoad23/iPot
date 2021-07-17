@@ -17,8 +17,28 @@ namespace AppiPot.Pages.ModalWindows
         public ChangeMinimalDrynessPage()
         {
             InitializeComponent();
-            
-            
+            GetMinimalMoisture();
+        }
+        
+        public async void GetMinimalMoisture()
+        {
+            using (var client = new HttpClient(GetInsecureHandler()))
+            {
+                client.BaseAddress = App.Adress;
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                
+                HttpResponseMessage response = await client.GetAsync("GetMinimalMoisture");
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    var data = await response.Content.ReadAsStringAsync();
+                    float moisture = JsonConvert.DeserializeObject<float>(data);
+                    this.FindByName<Slider>("DrynessSlider").Value = moisture;
+                    moisture = moisture == 0 ? 0 : (moisture / 1023) * 100;
+                    this.FindByName<Label>("SliderValueDryness").Text = moisture.ToString();
+                }
+            }
         }
 
         public async void SaveDryness(object sender, EventArgs args)
@@ -30,19 +50,24 @@ namespace AppiPot.Pages.ModalWindows
 
         public async void CancelDryness(object sender, EventArgs args) => await Navigation.PopModalAsync();
         
+        public void ChangeSliderValue(object sender, EventArgs args)
+        {
+            float moisture = (float) ((Slider) sender).Value;
+            moisture = moisture == 0 ? 0 : (moisture / 1023) * 100;
+            this.FindByName<Label>("SliderValueDryness").Text = moisture.ToString();
+        }
+        
         public async void SendInformation(double value)
         {
             
             using (var client = new HttpClient(GetInsecureHandler()))
             {
-                client.BaseAddress = new Uri("https://10.0.2.2:5001/");
+                client.BaseAddress = App.Adress;
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 StringContent content = new StringContent(JsonConvert.SerializeObject(new {MinimalMoisture = value}), Encoding.UTF8, "application/json");
 
-                await DisplayAlert("Message received", value.ToString(), "OK");
-                
                 // HTTP POST
                 HttpResponseMessage response = await client.PostAsync("SetMinimalMoisture",content);
                 

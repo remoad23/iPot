@@ -8,6 +8,8 @@ namespace iPotAPI.Model
     {
         [Key]
         public int PlantStateId { get; set; }
+        
+        public bool NeedsWater { get; set; }
 
         [ForeignKey("SettingsId")]
         public int? SettingsId { get; set; }

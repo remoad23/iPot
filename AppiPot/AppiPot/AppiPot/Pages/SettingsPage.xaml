@@ -7,13 +7,13 @@
         <TableView Intent="Settings">
             <TableRoot>
                 <TableSection Title="Allgemein">
-                    <SwitchCell Text="Automatisches Gießen" />
-                    <SwitchCell Text="automatisches Licht" On="true" />
+                    <SwitchCell Text="Automatisches Gießen" x:Name="AutomaticWatering" OnChanged="ToggleAutomaticWatering"  />
+                    <SwitchCell Text="automatisches Licht" x:Name="AutomaticLight" OnChanged="ToggleAutomaticLight"  />
                 </TableSection>
                 <TableSection Title="Benachrichtigungen">
-                    <SwitchCell Text="Wasser" />
-                    <SwitchCell Text="Licht" On="true" />
-                    <SwitchCell Text="Bodenfeuchtigkeit" />
+                    <SwitchCell x:Name="NotificationWater" Text="Wasser" OnChanged="ToggleNotificationWater" />
+                    <SwitchCell x:Name="NotificationLight" Text="Licht" OnChanged="ToggleNotificationLight"  />
+                    <SwitchCell x:Name="NotificationMoisture" Text="Bodenfeuchtigkeit" OnChanged="ToggleNotificationMoisture" />
                 </TableSection>
             </TableRoot>
         </TableView>

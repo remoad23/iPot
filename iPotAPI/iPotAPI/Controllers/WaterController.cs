@@ -30,6 +30,20 @@ namespace iPotAPI.Controllers
             }
             
         }
+        
+        [Route("SetNeedsWater")]
+        [HttpPost]
+        public IActionResult SetNeedsWater([FromBody]dynamic value)
+        {
+            string pr = Convert.ToString(value);
+            
+            var val = JsonSerializer.Deserialize<SetNeedsWater>(pr);
+            var plantState = Context.PlantState.SingleOrDefault();
+            plantState.NeedsWater = val.NeedsWater;
+            Context.SaveChanges();
+
+            return Ok();
+        }
 
         [HttpPost]
         [Route("SetMinimalMoisture")]
@@ -38,7 +52,6 @@ namespace iPotAPI.Controllers
             string pr = Convert.ToString(value);
             
             var val = JsonSerializer.Deserialize<SetMinimalMoistureData>(pr);
-            Console.WriteLine(val);
             var settings = Context.Settings.SingleOrDefault();
             settings.MoistureMinimum = (float)val.MinimalMoisture;
             Context.SaveChanges();

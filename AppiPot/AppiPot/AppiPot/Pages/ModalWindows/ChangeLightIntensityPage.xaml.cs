@@ -17,8 +17,30 @@ namespace AppiPot.Pages.ModalWindows
         public ChangeLightIntensityPage()
         {
             InitializeComponent();
-            
-
+            GetLight();
+        }
+        
+        public async void GetLight()
+        {
+            using (var client = new HttpClient(GetInsecureHandler()))
+            {
+                client.BaseAddress = App.Adress;
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                
+                
+                // HTTP POST
+                HttpResponseMessage response = await client.GetAsync("GetMinimumLight");
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    var data = await response.Content.ReadAsStringAsync();
+                    float lightAndAmbient = JsonConvert.DeserializeObject<float>(data);
+                    this.FindByName<Slider>("LightIntensitySlider2").Value =  lightAndAmbient;
+                    lightAndAmbient = lightAndAmbient == 0 ? 0 : (lightAndAmbient / 1023) * 100;
+                    this.FindByName<Label>("SliderValueLight").Text =  lightAndAmbient.ToString();
+                }
+            }
         }
 
         public async void SendLightIntensity(object sender, EventArgs args)
@@ -33,8 +55,13 @@ namespace AppiPot.Pages.ModalWindows
             SendInformation(slider.Value);
             await Navigation.PopModalAsync();
         }
-        
-        
+
+        public void ChangeSliderValue(object sender, EventArgs args)
+        {
+            float lightAndAmbient = (float)((Slider) sender).Value;
+            lightAndAmbient = lightAndAmbient == 0 ? 0 : (lightAndAmbient / 1023) * 100;
+            this.FindByName<Label>("SliderValueLight").Text = lightAndAmbient.ToString();
+        }
 
         public async void CancelLightIntensity(object sender, EventArgs args) => await Navigation.PopModalAsync();
         
@@ -43,16 +70,14 @@ namespace AppiPot.Pages.ModalWindows
             
             using (var client = new HttpClient(GetInsecureHandler()))
             {
-                client.BaseAddress = new Uri("https://10.0.2.2:5001/");
+                client.BaseAddress = App.Adress;
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 StringContent content = new StringContent(JsonConvert.SerializeObject(new {intensity = lightIntensity}), Encoding.UTF8, "application/json");
 
-                await DisplayAlert("Message received", lightIntensity.ToString(), "OK");
-                
                 // HTTP POST
-                HttpResponseMessage response = await client.PostAsync("SetLightIntensity",content);
+                HttpResponseMessage response = await client.PostAsync("SetLightMinimum",content);
                 
                 if (response.IsSuccessStatusCode)
                 {
