@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppiPot.Pages.ModalWindows.ChangeMinimalDrynessPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Abbrechen" Clicked="CancelDryness" StyleClass="cancelModalBtn"  HorizontalOptions="Start"></Button>
+            <StackLayout  Orientation="Vertical" VerticalOptions="CenterAndExpand" >
+                            <Label Text="Minimale Feuchtigkeit"  StyleClass="modalWindowTitle"   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Label Text="0"  StyleClass="modalWindowValueSlider" x:Name="SliderValueDryness"   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Slider x:Name="DrynessSlider"  ValueChanged="ChangeSliderValue"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Maximum="1023" Minimum="0" MaximumTrackColor="Blue" MinimumTrackColor="Green" StyleClass="PotSlider"/>
+            </StackLayout>
+            <Button Text="Speichern" Clicked="SaveDryness" CornerRadius="25" TextColor="White"  StyleClass="modalSubmitionBtn"   VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

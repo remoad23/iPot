@@ -9,6 +9,9 @@ namespace AppiPot
 {
     public partial class App : Application
     {
+        
+        public static Uri Adress = new Uri("https://192.168.1.103:5001/");
+        
         public App()
         {
             InitializeComponent();

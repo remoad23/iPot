@@ -1388,19 +1388,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Megaport\\.nuget\\packages\\": {}
+    "C:\\Users\\paddy\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Megaport\\source\\repos\\iPot\\iPotAPI\\iPotAPI\\iPotAPI.csproj",
+      "projectUniqueName": "C:\\Users\\paddy\\RiderProjects\\iPot\\iPotAPI\\iPotAPI\\iPotAPI.csproj",
       "projectName": "iPotAPI",
-      "projectPath": "C:\\Users\\Megaport\\source\\repos\\iPot\\iPotAPI\\iPotAPI\\iPotAPI.csproj",
-      "packagesPath": "C:\\Users\\Megaport\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Megaport\\source\\repos\\iPot\\iPotAPI\\iPotAPI\\obj\\",
+      "projectPath": "C:\\Users\\paddy\\RiderProjects\\iPot\\iPotAPI\\iPotAPI\\iPotAPI.csproj",
+      "packagesPath": "C:\\Users\\paddy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\paddy\\RiderProjects\\iPot\\iPotAPI\\iPotAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Megaport\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\paddy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1467,7 +1467,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppiPot.Pages.ModalWindows.ChangeLightIntensityPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Abbrechen" Clicked="CancelLightIntensity" StyleClass="cancelModalBtn"  HorizontalOptions="Start" ></Button>
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" >
+                            <Label Text="Aktivierunghelligkeit" StyleClass="modalWindowTitle"   HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"/>
+                            <Label Text="0"  StyleClass="modalWindowValueSlider" x:Name="SliderValueLight"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                            <Slider VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  MaximumTrackColor="Blue" ValueChanged="ChangeSliderValue"  MinimumTrackColor="Green" Maximum="1023" Minimum="0" x:Name="LightIntensitySlider2" StyleClass="PotSlider"/>
+            </StackLayout>
+            <Button HorizontalOptions="CenterAndExpand"  VerticalOptions="EndAndExpand" CornerRadius="25" TextColor="White" StyleClass="modalSubmitionBtn" Text="Absenden" Clicked="SendLightIntensity"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

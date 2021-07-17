@@ -1,0 +1,15 @@
+﻿Migrations ( Settet erst einzelne Tables und Datenbank in Source Corde):
+dotnet ef migrations add InitialCreatePotDb --context PotContext
+
+Migration Add ( Addet die Seeder und trägt tables in Datenbank ein)
+dotnet ef database update --context PotContext
+
+Remove Migration
+dotnet ef migrations remove
+
+
+run project and run:
+dotnet watch run
+
+run angular and watch:
+npm start watch
