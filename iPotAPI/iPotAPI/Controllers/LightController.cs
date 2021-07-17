@@ -34,6 +34,33 @@ namespace iPotAPI.Controllers
         }
         
 
+        [Route("GetMinimumLight")]
+        public IActionResult GetMinimumLight()
+        {
+            var intensity = Context.Settings.SingleOrDefault();
+            return Json(intensity.LightMinimum);
+        }
+        
+        [HttpPost]
+        [Route("SetLightMinimum")]
+        public IActionResult SetLightMinimum([FromBody] dynamic intensity)
+        {
+            string pr = Convert.ToString(intensity);
+            var val = JsonSerializer.Deserialize<SetLightIntensity>(pr);
+            
+            Console.WriteLine(val.intensity);
+            var plantState = Context.Settings.SingleOrDefault();
+            if (plantState is not null)
+            {
+                plantState.LightMinimum = (float)val.intensity;
+                Context.SaveChanges();
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
         
         [Route("GetLightAndAmbient")]
         public IActionResult GetLightAndAmbient()
@@ -62,33 +89,7 @@ namespace iPotAPI.Controllers
                 return NotFound();
             }
         }
-
-        public IActionResult GetUpTime()
-        {
-            var uptime = Context.Settings.SingleOrDefault();
-            return Json((uptime.UptimeStart, uptime.UptimeEnd));
-        }
-
-        [Route("SetUptime")]
-        public IActionResult SetUptime([FromBody] dynamic times)
-        {
-            string pr = Convert.ToString(times);
-            var val = JsonSerializer.Deserialize<SetUpTimeData>(pr);
-            
-            var settings = Context.Settings.SingleOrDefault();
-
-            if (settings is not null)
-            {
-                settings.UptimeStart = val.uptimeStart;
-                settings.UptimeEnd = val.uptimeEnd;
-                Context.SaveChanges();
-                return Ok();
-            }
-            else
-            {
-                return NotFound();
-            }
-            
-        }
+        
+        
     }
 }

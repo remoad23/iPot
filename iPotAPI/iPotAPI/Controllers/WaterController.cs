@@ -73,20 +73,21 @@ namespace iPotAPI.Controllers
             }
         }
         
-        [Route("GetWater")]
-        public IActionResult GetWater()
+        
+        [Route("GetMinimalMoisture")]
+        public IActionResult GetMinimalMoisture()
         {
-            var moistureAndWater = Context.PlantState.SingleOrDefault();
-            if (moistureAndWater is not null)
+            float minimalMoisture = Context.Settings.SingleOrDefault().MoistureMinimum;
+            if (minimalMoisture != null)
             {
-                return Ok(moistureAndWater.WaterStorage);
+                return Json(minimalMoisture);
             }
             else
             {
                 return NotFound();
             }
+            
         }
-
 
     }
 }

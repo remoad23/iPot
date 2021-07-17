@@ -20,6 +20,11 @@ namespace AppiPot.Pages.ModalWindows
             GetMinimalMoisture();
         }
         
+        protected override void OnAppearing()
+        {
+            GetMinimalMoisture();
+        }
+        
         public async void GetMinimalMoisture()
         {
             using (var client = new HttpClient(GetInsecureHandler()))

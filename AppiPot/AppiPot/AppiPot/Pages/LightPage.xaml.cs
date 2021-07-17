@@ -56,22 +56,22 @@ namespace AppiPot.Pages
         
         public void SetLightIntensityTo25(object sender, EventArgs e)
         {
-            SendMinimumInformation(25);
+            SendMinimumInformation(255);
         }
         
         public void SetLightIntensityTo50(object sender, EventArgs e)
         {
-            SendMinimumInformation(50);
+            SendMinimumInformation(512);
         }
         
         public void SetLightIntensityTo75(object sender, EventArgs e)
         {
-            SendMinimumInformation(75);
+            SendMinimumInformation(768);
         }
         
         public void SetLightIntensityTo100(object sender, EventArgs e)
         {
-            SendMinimumInformation(100);
+            SendMinimumInformation(1023);
         }
         
         public async void SendMinimumInformation(double lightIntensity)

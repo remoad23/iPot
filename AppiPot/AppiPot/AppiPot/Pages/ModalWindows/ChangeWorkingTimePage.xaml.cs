@@ -20,6 +20,11 @@ namespace AppiPot.Pages.ModalWindows
             GetWorkingTime();
         }
         
+        protected override void OnAppearing()
+        {
+            GetWorkingTime();
+        }
+        
         public async void GetWorkingTime()
         {
             using (var client = new HttpClient(GetInsecureHandler()))
@@ -43,7 +48,7 @@ namespace AppiPot.Pages.ModalWindows
                     int toHour = Int32.Parse( uptime.Item2[0].ToString() + uptime.Item2[1].ToString() );
                     int toMin = Int32.Parse( uptime.Item2[3].ToString() + uptime.Item2[4].ToString() );
                     int toSec = Int32.Parse( uptime.Item2[6].ToString() + uptime.Item2[7].ToString() );
-                    
+
                     this.FindByName<TimePicker>("From").Time =  new TimeSpan(fromHour,fromMin,fromSec);
                     this.FindByName<TimePicker>("To").Time = new TimeSpan(toHour,toMin,toSec);
                 }

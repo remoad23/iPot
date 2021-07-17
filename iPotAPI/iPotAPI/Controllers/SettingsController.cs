@@ -154,5 +154,36 @@ namespace iPotAPI.Controllers
             Context.SaveChanges();
             return Ok();
         }
+        
+        
+        [Route("GetUpTime")]
+        public IActionResult GetUpTime()
+        {
+            var uptime = Context.Settings.SingleOrDefault();
+            Console.WriteLine("Using it");
+            return Json(new Tuple<string,string>(uptime.UptimeStart, uptime.UptimeEnd));
+        }
+
+        [Route("SetUptime")]
+        public IActionResult SetUptime([FromBody] dynamic times)
+        {
+            string pr = Convert.ToString(times);
+            var val = JsonSerializer.Deserialize<SetUpTimeData>(pr);
+            
+            var settings = Context.Settings.SingleOrDefault();
+
+            if (settings is not null)
+            {
+                settings.UptimeStart = val.uptimeStart;
+                settings.UptimeEnd = val.uptimeEnd;
+                Context.SaveChanges();
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+            
+        }
     }
 }

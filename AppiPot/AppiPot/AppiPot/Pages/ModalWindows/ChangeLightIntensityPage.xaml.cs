@@ -20,6 +20,12 @@ namespace AppiPot.Pages.ModalWindows
             GetLight();
         }
         
+                
+        protected override void OnAppearing()
+        {
+            GetLight();
+        }
+        
         public async void GetLight()
         {
             using (var client = new HttpClient(GetInsecureHandler()))
@@ -30,7 +36,7 @@ namespace AppiPot.Pages.ModalWindows
                 
                 
                 // HTTP POST
-                HttpResponseMessage response = await client.GetAsync("GetMinimumLight");
+                HttpResponseMessage response = await client.GetAsync("GetLightMinimum");
                 
                 if (response.IsSuccessStatusCode)
                 {
