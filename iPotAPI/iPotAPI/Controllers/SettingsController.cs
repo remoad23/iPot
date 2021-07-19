@@ -144,6 +144,16 @@ namespace iPotAPI.Controllers
 
             return Json(response);
         }
+        
+        [Route("GetWaterNotificationAndWater")]
+        public IActionResult GetWaterNotificationAndWater()
+        {
+            bool notificationWater = Context.Settings.SingleOrDefault().NotificationWater;
+            bool water = Context.PlantState.SingleOrDefault().WaterStorage == 0 ? false : true;
+            bool needsWater = notificationWater && water;
+
+            return Ok(needsWater);
+        }
 
         [HttpPost]
         [Route("SetPlantState")]

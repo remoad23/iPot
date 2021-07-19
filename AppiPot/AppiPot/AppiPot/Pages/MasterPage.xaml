@@ -7,7 +7,7 @@
              android:TabbedPage.ToolbarPlacement="Bottom"
              x:Class="AppiPot.Pages.MasterPage">
     
-    <pages:WaterPage Title="Water"></pages:WaterPage>
-    <pages:LightPage Title="Light"></pages:LightPage>
-    <pages:SettingsPage Title="Settings"></pages:SettingsPage>
+    <pages:WaterPage Title="Wasser"></pages:WaterPage>
+    <pages:LightPage Title="Licht"></pages:LightPage>
+    <pages:SettingsPage Title="Einstellungen"></pages:SettingsPage>
 </TabbedPage>

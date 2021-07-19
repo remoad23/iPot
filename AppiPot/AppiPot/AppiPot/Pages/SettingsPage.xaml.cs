@@ -84,48 +84,6 @@ namespace AppiPot.Pages
             }
         }
 
-        public async void ToggleNotificationLight(object sender, ToggledEventArgs e)
-        {
-            using (var client = new HttpClient(GetInsecureHandler()))
-            {
-                client.BaseAddress = App.Adress;
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                StringContent content = new StringContent(JsonConvert.SerializeObject(new {NotificationLight = e.Value}), Encoding.UTF8, "application/json");
-                
-                // HTTP POST
-                HttpResponseMessage response = await client.PostAsync("SetNotificationLight",content);
-                
-                if (response.IsSuccessStatusCode)
-                {
-                    string data = await response.Content.ReadAsStringAsync();
-                    //   product = JsonConvert.DeserializeObject<UserAccount>(data);
-                }
-            }
-        }
-
-        public async void ToggleNotificationMoisture(object sender, ToggledEventArgs e)
-        {
-            using (var client = new HttpClient(GetInsecureHandler()))
-            {
-                client.BaseAddress = App.Adress;
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                StringContent content = new StringContent(JsonConvert.SerializeObject(new {NotificationMoisture = e.Value}), Encoding.UTF8, "application/json");
-                
-                // HTTP POST
-                HttpResponseMessage response = await client.PostAsync("SetNotificationMoisture",content);
-                
-                if (response.IsSuccessStatusCode)
-                {
-                    string data = await response.Content.ReadAsStringAsync();
-                    //   product = JsonConvert.DeserializeObject<UserAccount>(data);
-                }
-            }
-        }
-
         public async void ConfigureSettingsStartup()
         {
             var automaticWatering =  this.FindByName<SwitchCell>("AutomaticWatering");
@@ -156,6 +114,27 @@ namespace AppiPot.Pages
         }
         
         
+        public static async void GetSettingsForService()
+        {
+
+
+            using (var client = new HttpClient(GetInsecureHandlerStatic()))
+            {
+                client.BaseAddress = App.Adress;
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                
+                HttpResponseMessage response = await client.GetAsync("GetWaterNotificationAndWater");
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    var data = await response.Content.ReadAsStringAsync();
+                    bool needsWater = JsonConvert.DeserializeObject<bool>(data);
+                    DependencyService.Get<INotification>().NeedsWatering = needsWater;
+                }
+            }
+        }
+        
         // This method must be in a class in a platform project, even if
         // the HttpClient object is constructed in a shared project.
         public HttpClientHandler GetInsecureHandler()
@@ -170,5 +149,19 @@ namespace AppiPot.Pages
             return handler;
         }
         
+        
+        // This method must be in a class in a platform project, even if
+        // the HttpClient object is constructed in a shared project.
+        public static HttpClientHandler GetInsecureHandlerStatic()
+        {
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
+            {
+                if (cert.Issuer.Equals("CN=localhost"))
+                    return true;
+                return errors == System.Net.Security.SslPolicyErrors.None;
+            };
+            return handler;
+        }
     }
 }

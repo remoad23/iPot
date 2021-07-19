@@ -26,19 +26,11 @@ namespace AppiPot.Pages {
         private global::Xamarin.Forms.SwitchCell NotificationWater;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.SwitchCell NotificationLight;
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.SwitchCell NotificationMoisture;
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(SettingsPage));
             AutomaticWatering = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.SwitchCell>(this, "AutomaticWatering");
             AutomaticLight = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.SwitchCell>(this, "AutomaticLight");
             NotificationWater = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.SwitchCell>(this, "NotificationWater");
-            NotificationLight = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.SwitchCell>(this, "NotificationLight");
-            NotificationMoisture = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.SwitchCell>(this, "NotificationMoisture");
         }
     }
 }

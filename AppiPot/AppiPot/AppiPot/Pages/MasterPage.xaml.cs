@@ -16,6 +16,8 @@ namespace AppiPot.Pages
         {
             // Add all slide pages to MasterPage
             InitializeComponent();
+            
+            DependencyService.Get<INotification>().StartForegroundServiceCompat();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -12,9 +13,11 @@ namespace AppiPot.Android
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        public static MainActivity activity;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            activity = this;
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -22,5 +25,6 @@ namespace AppiPot.Android
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
+        
     }
 }

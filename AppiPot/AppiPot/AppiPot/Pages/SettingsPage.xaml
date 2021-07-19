@@ -12,8 +12,6 @@
                 </TableSection>
                 <TableSection Title="Benachrichtigungen">
                     <SwitchCell x:Name="NotificationWater" Text="Wasser" OnChanged="ToggleNotificationWater" />
-                    <SwitchCell x:Name="NotificationLight" Text="Licht" OnChanged="ToggleNotificationLight"  />
-                    <SwitchCell x:Name="NotificationMoisture" Text="Bodenfeuchtigkeit" OnChanged="ToggleNotificationMoisture" />
                 </TableSection>
             </TableRoot>
         </TableView>
