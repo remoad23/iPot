@@ -6,5 +6,5 @@ Basically ASP.NET Core is used as a "man in the middle" to communicate between a
 Xamarin is developed only for android.  
   
 Contributors:  
-Arduino: https://github.com/davidw32
-ASP.NET Core and Xamarin: by me
+Arduino: https://github.com/davidw32  
+ASP.NET Core and Xamarin: by me  
